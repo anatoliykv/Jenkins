@@ -1,3 +1,4 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/anatoliykv/cicd-buzz?branch=master)](https://bettercodehub.com/) [![Build Status](https://travis-ci.com/anatoliykv/cicd-buzz.svg?branch=master)](https://travis-ci.com/anatoliykv/cicd-buzz)
 # Description
 This is pipeline to deploy on Heroku with test Python code.
 Here is code review by Better Code Hub also.
