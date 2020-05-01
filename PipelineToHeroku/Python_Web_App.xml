@@ -33,7 +33,7 @@
         <hudson.model.StringParameterDefinition>
           <name>HEROKU_API_KEY</name>
           <description></description>
-          <defaultValue>ee045d0a-0ace-455a-85b9-3c5464c626bf</defaultValue>
+          <defaultValue>*****************************</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
