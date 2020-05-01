@@ -1,0 +1,1 @@
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8090:8080 --name jenkins_cont my_jenkins
