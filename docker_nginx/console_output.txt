@@ -1,0 +1,96 @@
+
+Успешно
+Вывод на консоль
+Started by user Anatoliy Kalashnikov
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/docker_nginx
+using credential github
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:anatoliykv/homework-itea.git # timeout=10
+Fetching upstream changes from git@github.com:anatoliykv/homework-itea.git
+ > git --version # timeout=10
+using GIT_SSH to set credentials 
+ > git fetch --tags --progress -- git@github.com:anatoliykv/homework-itea.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 4f01772fcce91fb5f0670ebb55e5346bc59e84a3 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4f01772fcce91fb5f0670ebb55e5346bc59e84a3 # timeout=10
+Commit message: "Delete index.html"
+ > git rev-list --no-walk 4f01772fcce91fb5f0670ebb55e5346bc59e84a3 # timeout=10
+[docker_nginx] $ /bin/sh -xe /tmp/jenkins4915417401578749447.sh
++ cd /var/lib/jenkins/workspace/docker_nginx/HomeWorkDockerNginx/
++ pwd
+/var/lib/jenkins/workspace/docker_nginx/HomeWorkDockerNginx
++ ls -la
+total 20
+drwxr-xr-x 2 jenkins jenkins 4096 Feb  1 13:14 .
+drwxr-xr-x 6 jenkins jenkins 4096 Feb  1 13:14 ..
+-rw-r--r-- 1 jenkins jenkins  163 Feb  1 13:14 Dockerfile
+-rw-r--r-- 1 jenkins jenkins   85 Feb  1 13:14 entrypoint.sh
+-rw-r--r-- 1 jenkins jenkins   19 Feb  1 13:14 index.html
++ docker build . -t test
+Sending build context to Docker daemon  4.096kB
+
+Step 1/6 : FROM nginx
+ ---> 5ad3bd0e67a9
+Step 2/6 : MAINTAINER anatoliykv
+ ---> Running in 96f16ab0e5ac
+Removing intermediate container 96f16ab0e5ac
+ ---> 5277874470c6
+Step 3/6 : COPY index.html /usr/share/nginx/html/index.html
+ ---> fea7b13bad6b
+Step 4/6 : COPY entrypoint.sh entrypoint.sh
+ ---> 3a71ae1c69be
+Step 5/6 : ENTRYPOINT ["bash", "entrypoint.sh"]
+ ---> Running in 64361c254a16
+Removing intermediate container 64361c254a16
+ ---> 3bb0276fe9c6
+Step 6/6 : EXPOSE 80
+ ---> Running in e11ea83d42e1
+Removing intermediate container e11ea83d42e1
+ ---> df8874359daf
+Successfully built df8874359daf
+Successfully tagged test:latest
++ '[' true = true ']'
++ echo true
+true
++ echo test
+test
++ echo test_container_local
+test_container_local
++ echo anatoliykv
+anatoliykv
++ docker run -d --name test_container_local test
+75a0bbfa537df62c5d748f06ac2258194a6a3bffd0a997847079a35e592f0380
++ docker kill test_container_local
+test_container_local
++ docker commit test_container_local anatoliykv/test_container_local
+sha256:99d3a2f6585fbf5b84e5c7ebeabf7a0263b7b73c4110434c682aa046e4952de5
++ docker login -u anatoliykv -p **********
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/lib/jenkins/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
++ docker push anatoliykv/test_container_local
+The push refers to repository [docker.io/anatoliykv/test_container_local]
+0c2b6723ee52: Preparing
+f1b28081256a: Preparing
+0af2bf0647d0: Preparing
+667896a58959: Preparing
+92a699bf44ed: Preparing
+556c5fb0d91b: Preparing
+556c5fb0d91b: Waiting
+0af2bf0647d0: Pushed
+0c2b6723ee52: Pushed
+f1b28081256a: Pushed
+667896a58959: Pushed
+92a699bf44ed: Pushed
+556c5fb0d91b: Pushed
+latest: digest: sha256:332a541d4caa7975b15b4beef54c03161a496bae7a1aeaf42793c6f85b42feec size: 1569
++ echo 'image has been pushed'
+image has been pushed
+Finished: SUCCESS
